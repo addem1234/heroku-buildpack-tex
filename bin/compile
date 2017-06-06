@@ -65,6 +65,10 @@ if [ ! `which pdflatex` ]; then
     build-step "Installing TeX Live"
 
     PROF=$BIN_DIR/../conf/texlive.profile
+    
+    if [ -f $BUILD_DIR/texlive.profile ]; then
+        PROF=$BUILD_DIR/texlive.profile
+    fi
 
     echo "TEXDIR $TEXLIVE_HOME" >> $PROF 
     echo "TEXMFCONFIG $TEXLIVE_HOME/var/texmf-config" >> $PROF
